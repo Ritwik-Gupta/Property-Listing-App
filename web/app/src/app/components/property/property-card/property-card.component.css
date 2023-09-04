@@ -1,0 +1,31 @@
+.card:hover img {
+  transform: scale(1.5,1.5);
+  transition-duration: 500ms;
+  opacity: 0.7;
+}
+
+.card:hover .option-icons{
+  /* transition: ; */
+  margin-top: -3em;
+}
+
+
+.card-image {
+  transition: transform .2s;
+  transition-duration: 500ms;
+  height: 100%;
+  width: 100%;
+}
+
+.card-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.option-icons {
+  position: absolute;
+  transition: 0.2s ease-in-out;
+  margin-left: 38%;
+}
+
+
