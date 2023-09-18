@@ -1,0 +1,14 @@
+<h2>Property ID: {{propertyId}}</h2>
+
+
+<button class="btn btn-primary" (click)="OnSelectPrevPage()">Prev Page</button>
+<button class="btn btn-primary" (click)="OnSelectNextPage()">Next Page</button>
+<br>
+<br>
+
+<button class="btn btn-primary" routerLink="/view-property/1">1</button>
+<button class="btn btn-primary" routerLink="/view-property/2">2</button>
+<button class="btn btn-primary" routerLink="/view-property/3">3</button>
+<button class="btn btn-primary" [routerLink]="['/view-property', '4']">4</button>
+
+

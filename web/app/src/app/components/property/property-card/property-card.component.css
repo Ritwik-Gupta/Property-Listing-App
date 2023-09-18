@@ -28,4 +28,11 @@
   margin-left: 38%;
 }
 
+.option-icons div{
+  cursor: pointer;
+  /* background: #23C4ED; */
+  border-radius: 5px;
+  padding: 3px;
+}
+
 

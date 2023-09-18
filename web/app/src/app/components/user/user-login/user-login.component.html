@@ -1,0 +1,29 @@
+<div class="container justify-content-center col-lg-6">
+  <div class="card">
+    <div class="card-header">
+      User Login
+    </div>
+    <div class="card-body">
+      <form [formGroup]="userLoginForm">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email / UserID</label>
+          <input type="email" class="form-control" id="email" formControlName="email">
+          <span class="error-block" *ngIf="!email.valid && email.touched">
+            <small *ngIf="email.errors['required']">Email Id is required</small>
+            <small *ngIf="email.errors['email']">Invalid Email Id</small>
+          </span>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password">
+          <small *ngIf="!password.valid && password.touched" ngClass="error-block">Password is required</small>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Remember me</label>
+        </div>
+        <button type="submit" [disabled]="!userLoginForm.valid" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
