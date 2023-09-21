@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -17,6 +17,8 @@ import { ErrorPageComponent } from './components/error-page/error-page.component
 import { AddPropertyComponent } from './components/property/add-property/add-property.component';
 import { UserLoginComponent } from './components/user/user-login/user-login.component';
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
+import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
 
 const appRoutes: Routes = [
   {path: "", component: PropertyListComponent},
@@ -49,7 +51,23 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     ReactiveFormsModule
   ],
-  providers: [HousingService],
+  providers: [HousingService, UserService, AuthService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule implements OnInit {
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  ngOnInit(): void {
+    console.log("test1");
+    debugger;
+    //check if user is logged in, otherwise route to login page
+    if(this.authService.isLoggedIn()) {
+      this.router.navigate([""])
+    }
+    else {
+      this.router.navigate(["user-login"])
+    }
+  }
+}

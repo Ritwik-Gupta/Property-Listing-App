@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators,
   ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { User } from 'src/app/model/user';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-register',
@@ -9,24 +11,27 @@ import { FormControl, FormGroup, Validators,
 })
 export class UserRegisterComponent {
 
+  constructor(private userService: UserService) {}
+
+  private user: User;
+
   userRegistrationForm: any = new FormGroup({
     fname : new FormControl('', Validators.required),
     lname : new FormControl('', Validators.required),
     email : new FormControl('', [Validators.required, Validators.email]),
     password : new FormControl('', [Validators.required,Validators.minLength(8), Validators.maxLength(20)]),
-    confirmpassword : new FormControl('', [Validators.required,Validators.minLength(8), Validators.maxLength(20),
+    confirmPassword : new FormControl('', [Validators.required,Validators.minLength(8), Validators.maxLength(20),
     this.passwordMatchingValidator()])
   })
 
 
   passwordMatchingValidator(): ValidatorFn    {
     return (control: AbstractControl): ValidationErrors => {
-      debugger;
-      const value = control.value;
+       const value = control.value;
 
       if(value == "") { return null; }
 
-      const passValid = this.userRegistrationForm.get('password').value === this.userRegistrationForm.get('confirmpassword').value;
+      const passValid = this.userRegistrationForm.get('password').value === this.userRegistrationForm.get('confirmPassword').value;
 
       if(!passValid){
         return {notmatched: true};
@@ -58,25 +63,16 @@ export class UserRegisterComponent {
   }
 
   get confirmPassword() {
-    return this.userRegistrationForm.get('confirmpassword') as FormControl;
+    return this.userRegistrationForm.get('confirmPassword') as FormControl;
   }
 
   // ----------------------------------------
 
   onSubmit(): void {
-    console.log(this.userRegistrationForm);
+    debugger;
+    this.user = this.userRegistrationForm.value;
+    this.userService.saveUser(this.user);
+    this.userRegistrationForm.reset();
   }
 
-  // onPasswordChange(): void {
-  //   console.log(this.password);
-  // }
-
-  // onEmailChange(): void {
-  //   console.log(this.email);
-  // }
-
-  onCheckStatus(): void {
-    console.log(this.password);
-    console.log(this.confirmPassword);
-  }
 }
