@@ -19,9 +19,12 @@ import { UserLoginComponent } from './components/user/user-login/user-login.comp
 import { UserRegisterComponent } from './components/user/user-register/user-register.component';
 import { UserService } from './services/user.service';
 import { AuthService } from './services/auth.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 const appRoutes: Routes = [
-  {path: "", component: PropertyListComponent},
+  {path: "", component: UserLoginComponent},
+  {path: "dashboard", component: PropertyListComponent},
   {path: "buy-property", component: BuyPropertyComponent},
   {path: "sell-property", component: SellPropertyComponent},
   {path: "view-property/:id", component: ViewPropertyComponent},
@@ -49,25 +52,12 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
   ],
   providers: [HousingService, UserService, AuthService],
   bootstrap: [AppComponent]
 })
 
-export class AppModule implements OnInit {
-
-  constructor(private authService: AuthService, private router: Router) {}
-
-  ngOnInit(): void {
-    console.log("test1");
-    debugger;
-    //check if user is logged in, otherwise route to login page
-    if(this.authService.isLoggedIn()) {
-      this.router.navigate([""])
-    }
-    else {
-      this.router.navigate(["user-login"])
-    }
-  }
-}
+export class AppModule { }

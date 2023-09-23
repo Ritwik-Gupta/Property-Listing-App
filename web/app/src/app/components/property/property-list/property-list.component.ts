@@ -18,9 +18,7 @@ export class PropertyListComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getProperties().subscribe(data => {
-      debugger;
       this.properties = data;
-      console.log(data);
     })
   }
 }

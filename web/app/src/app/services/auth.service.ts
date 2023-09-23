@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   confirmLogin(email: string, password:string) {
     let Users: Array<User> = JSON.parse(localStorage.getItem("Users"));
@@ -21,14 +23,13 @@ export class AuthService {
 
     if(selectedUser) {
       //set a local storage token, when the user is authenticated successfully
-      localStorage.setItem("token", email);
+      localStorage.setItem("token", JSON.stringify(selectedUser));
       return true;
     }
     return false;
   }
 
-  isLoggedIn() {
-    debugger;
+  isUserLoggedIn() {
     let exists  = localStorage.getItem("token");
     if(exists) {
       return true;
@@ -37,4 +38,14 @@ export class AuthService {
       return false;
     }
   }
+
+  getLoggedInUser() {
+    let loggedInUser = JSON.parse(localStorage.getItem("token"));
+    return loggedInUser;
+  }
+
+  logoutUser(): void {
+    localStorage.removeItem("token")
+  }
+
 }

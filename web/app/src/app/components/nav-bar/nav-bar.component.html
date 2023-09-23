@@ -13,10 +13,11 @@
           <a class="nav-link" routerLinkActive="active" routerLink="sell-property">Sell</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLinkActive="active" routerLink="post-ad" tabindex="-1">Post Ad</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="post-ad" tabindex="-1">Post Ad <sup class="text-light bg-danger rounded px-1">Free</sup></a>
         </li>
       </ul>
-      <ul class="d-flex navbar-nav">
+      <!-- If User is not logged in -->
+      <ul class="d-flex navbar-nav" *ngIf="!isLoggedIn()">
         <li class="nav-item">
           <a class="nav-link" routerLinkActive="active" routerLink="user-login">Login</a>
         </li>
@@ -24,6 +25,19 @@
           <a class="nav-link" routerLinkActive="active" routerLink="user-register">Register</a>
         </li>
       </ul>
+      <!-- If User is logged in -->
+      <div class="btn-group mx-3" *ngIf="isLoggedIn()" dropdown>
+        <a id="button-basic" dropdownToggle class="btn dropdown-toggle text-light">
+          Welcome {{loggedInUser.fname}} <span class="caret"></span>
+        </a>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu pr-2"
+            role="menu" aria-labelledby="button-basic">
+          <li role="menuitem"><a class="dropdown-item"><i class="fa-solid fa-gauge-high"></i>&nbsp;Dashboard</a></li>
+          <li role="menuitem"><a class="dropdown-item"><i class="fa-solid fa-user"></i>&nbsp;Profile</a></li>
+          <li role="menuitem"><a class="dropdown-item"><i class="fa-solid fa-key"></i>&nbsp;Change Password</a></li>
+          <li role="menuitem"><a class="dropdown-item" (click)="onLogout()"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;Logout</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </nav>

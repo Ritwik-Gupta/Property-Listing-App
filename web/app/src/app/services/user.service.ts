@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user';
-import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   users: any;
-  constructor() { }
+  loggedInUser: User;
+
+  constructor(private authService: AuthService) { }
 
   saveUser(user: User) {
     this.users = JSON.parse(localStorage.getItem('Users'));
@@ -22,4 +24,5 @@ export class UserService {
 
     localStorage.setItem("Users", this.users);
   }
+
 }
