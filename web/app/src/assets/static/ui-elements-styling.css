@@ -1,0 +1,12 @@
+div.radio-options .active
+ {
+    background-color: #0d6efd;
+    color: white ;
+ }
+
+
+div.radio-options > label[ng-reflect-btn-radio] {
+  border-radius: 44px;
+  margin-right: 4px;
+  font-size: small;
+}

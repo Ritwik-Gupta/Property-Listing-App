@@ -1,5 +1,5 @@
 <div class="justify-content-center d-flex">
-  <div class="card w-50">
+  <div class="card col-lg-6">
     <div class="card-header h3">Add Property</div>
     <div class="card-body">
       <div>
@@ -7,21 +7,88 @@
           <tab heading="Basic title" id="tab1">
             <form class="mt-1 p-3">
               <div class="mb-3">
-                <label class="form-label">I want to</label>
-                <div class="form-inline d-flex align-items-center">
-                  <div class="btn-group" btnRadioGroup [(ngModel)]="radioModelDisabled">
-                    <label class="btn btn-success" btnRadio="Left">Left</label>
-                    <label class="btn btn-success" btnRadio="Middle">Middle</label>
-                    <label class="btn btn-success" btnRadio="Right">Right</label>
+                <label class="form-label mb-2">I want to</label>
+                <div class="form-inline d-flex align-items-center mx-2">
+                  <div class="btn-group radio-options" btnRadioGroup [(ngModel)]="buySellOptionsModel" name="sellRentOptions">
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Sell">Sell</label>
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Rent">Rent</label>
                   </div>
                 </div>
               </div>
-              {{radioModelDisabled}}
+              <!-- {{buySellOptionsModel}} -->
+              <div class="mb-3">
+                <label class="form-label">BHK</label>
+                <div class="form-inline d-flex align-items-center mx-2">
+                  <div class="btn-group radio-options" btnRadioGroup [(ngModel)]="BHKOptionsModel" name="BHKOptions">
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="1">1</label>
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="2">2</label>
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="3">3</label>
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="4">4</label>
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="5">5</label>
+                  </div>
+                </div>
+                <!-- {{BHKOptionsModel}} -->
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Property Type</label>
+                <div class="form-inline d-flex align-items-center mx-2">
+                  <div class="btn-group radio-options" btnRadioGroup [(ngModel)]="propertyTypeModel" name="propertyTypeOptions">
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="House">House</label>
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Apartment">Apartment</label>
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Duplex">Duplex</label>
+                  </div>
+                </div>
+                <!-- {{propertyTypeModel}} -->
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Furnishing Type</label>
+                <div class="form-inline d-flex align-items-center mx-2">
+                  <div class="btn-group radio-options" btnRadioGroup [(ngModel)]="furnishingTypeOptionsModel" name="furnishingTypeOptions">
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Fully">Fully</label>
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Semi">Semi</label>
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Unfurnished">Unfurnished</label>
+                  </div>
+                </div>
+                <!-- {{furnishingTypeOptionsModel}} -->
+              </div>
             </form>
           </tab>
-          <tab heading="Pricing and Area">Pricing and Area</tab>
+          <tab heading="Pricing and Area">
+            Pricing and Area
+          </tab>
           <tab heading="Address">Address</tab>
-          <tab heading="Other Detail">Other Details</tab>
+          <tab heading="Other Detail">
+            <form class="mt-1 p-3">
+              <div class="mb-3">
+                <label class="form-label mb-2">Ready to Move</label>
+                <div class="form-inline d-flex align-items-center mx-2">
+                  <div class="btn-group radio-options" btnRadioGroup [(ngModel)]="readyToMoveOptionsModel" name="readyToMoveOptions">
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Yes">Yes</label>
+                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="No">No</label>
+                  </div>
+                </div>
+                <!-- {{readyToMoveOptionsModel}} -->
+              </div>
+              <div class="mb-3">
+                <label class="form-label mb-2">Posession/ Available from</label>
+                <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                  <input type="text"
+                         placeholder="dd/MM/yyyy"
+                         class="form-control"
+                         [bsConfig]="bsConfig"
+                         [(ngModel)]="availaibleFromDate"
+                         name="test"
+                         bsDatepicker>
+                </div>
+              </div>
+              <!-- {{availaibleFromDate | date:'medium'}} -->
+              <div class="mb-3">
+                <label class="form-label mb-2" for="customRange1">Age of Property (In Years)</label>
+                  <input type="range" class="form-range" id="customRange1" min="0" max="25" value="5" [(ngModel)]="propertyAge" (input)="onChangePropertyAgeSlider($event)">
+                  <p class="bg-secondary text-light d-inline-flex rounded-2 px-2 py-1">{{propertyAge}} Year(s)</p>
+              </div>
+            </form>
+          </tab>
           <tab heading="Photos">Photos</tab>
         </tabset>
       </div>
