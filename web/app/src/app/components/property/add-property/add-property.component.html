@@ -1,29 +1,30 @@
 <div class="justify-content-center d-flex">
   <div class="card w-50">
-    <div class="card-header">Add Property</div>
+    <div class="card-header h3">Add Property</div>
     <div class="card-body">
-      <form class="mx-2">
-        <div class="form-group">
-          <label for="name" class="mb-1"><b>Name</b></label>
-          <input id="name" class="form-control" type="text">
-        </div>
-        <div class="form-group mt-3">
-          <label for="type" class="mb-1"><b>Type</b></label>
-          <input id="type" class="form-control" type="text">
-        </div>
-        <div class="form-group mt-3">
-          <label for="price" class="mb-1"><b>Price</b></label>
-          <input id="price" class="form-control" type="text">
-        </div>
-        <div class="form-group mt-3">
-          <label for="image" class="mb-1"><b>Image</b></label>
-          <input type="file" id="image" class="form-control">
-        </div>
-        <div class="form-group mt-3 float-end">
-          <button class="btn btn-primary mx-2">Submit</button>
-          <button class="btn btn-secondary">Cancel</button>
-        </div>
-      </form>
+      <div>
+        <tabset>
+          <tab heading="Basic title" id="tab1">
+            <form class="mt-1 p-3">
+              <div class="mb-3">
+                <label class="form-label">I want to</label>
+                <div class="form-inline d-flex align-items-center">
+                  <div class="btn-group" btnRadioGroup [(ngModel)]="radioModelDisabled">
+                    <label class="btn btn-success" btnRadio="Left">Left</label>
+                    <label class="btn btn-success" btnRadio="Middle">Middle</label>
+                    <label class="btn btn-success" btnRadio="Right">Right</label>
+                  </div>
+                </div>
+              </div>
+              {{radioModelDisabled}}
+            </form>
+          </tab>
+          <tab heading="Pricing and Area">Pricing and Area</tab>
+          <tab heading="Address">Address</tab>
+          <tab heading="Other Detail">Other Details</tab>
+          <tab heading="Photos">Photos</tab>
+        </tabset>
+      </div>
     </div>
   </div>
 </div>

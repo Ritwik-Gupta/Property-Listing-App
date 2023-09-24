@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-add-property',
@@ -7,10 +6,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./add-property.component.css']
 })
 export class AddPropertyComponent {
-
-
-  onSubmit(Form: NgForm):void {
-
-  }
-
+  radioModel = 'Middle';
+  radioModelDisabled = 'Middle';
+  modelGroupDisabled=false;
 }
