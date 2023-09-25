@@ -3,72 +3,120 @@
     "id": 1,
     "name": "House1",
     "type": "Type1",
-    "price": 120000
+    "price": 120000,
+    "isReadytoMove": "Yes",
+    "furnishingType": "Semi",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   },
   {
     "id": 2,
     "name": "House2",
     "type": "Type2",
-    "price": 220000
+    "price": 220000,
+    "isReadytoMove": "Yes",
+    "furnishingType": "Unfurnished",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   },
   {
     "id": 3,
     "name": "House3",
     "type": "Type3",
-    "price": 180000
+    "price": 180000,
+    "isReadytoMove": "Yes",
+    "furnishingType": "Semi",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   },
   {
     "id": 4,
     "name": "House4",
     "type": "Type4",
-    "price": 125000
+    "price": 125000,
+    "isReadytoMove": "Yes",
+    "furnishingType": "Unfurnished",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   },
   {
     "id": 5,
     "name": "House5",
     "type": "Type5",
-    "price": 105000
+    "price": 105000,
+    "isReadytoMove": "Yes",
+    "furnishingType": "Unfurnished",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   },
   {
     "id": 6,
     "name": "House6",
     "type": "Type6",
-    "price": 200000
+    "price": 200000,
+    "isReadytoMove": "No",
+    "furnishingType": "Semi",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   },
   {
     "id": 7,
     "name": "House7",
     "type": "Type7",
-    "price": 250000
+    "price": 250000,
+    "isReadytoMove": "Yes",
+    "furnishingType": "Fully",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   },
   {
     "id": 8,
     "name": "House8",
     "type": "Type8",
-    "price": 430000
+    "price": 430000,
+    "isReadytoMove": "Yes",
+    "furnishingType": "Fully",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   },
   {
     "id": 9,
     "name": "House9",
     "type": "Type9",
-    "price": 290000
+    "price": 290000,
+    "isReadytoMove": "Yes",
+    "furnishingType": "Semi",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   },
   {
     "id": 10,
     "name": "House10",
     "type": "Type10",
-    "price": 270000
+    "price": 270000,
+    "isReadytoMove": "Yes",
+    "furnishingType": "Fully",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   },
   {
     "id": 11,
     "name": "House11",
     "type": "Type11",
-    "price": 2110000
+    "price": 2110000,
+    "isReadytoMove": "Yes",
+    "furnishingType": "Semi",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   },
   {
     "id": 12,
     "name": "House12",
     "type": "Type12",
-    "price": 150000
+    "price": 150000,
+    "isReadytoMove": "Yes",
+    "furnishingType": "Fully",
+    "address": "Park Street, Welligton",
+    "area": "1250"
   }
 ]

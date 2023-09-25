@@ -9,9 +9,27 @@ import { IProperty } from 'src/app/interfaces/iproperty';
 export class PropertyCardComponent implements OnInit{
   @Input() property: IProperty;
 
+
+  furnishingType: string;
+  isReadytoMove: boolean;
+
   constructor() { }
 
   ngOnInit(): void {
 
+    //setting furnishing type
+    if(this.property.furnishingType == "Semi") {
+      this.furnishingType = "Semi Furnished";
+    }
+    else if(this.property.furnishingType == "Fully") {
+      this.furnishingType = "Fully Furnished";
+    }
+    else {
+      this.furnishingType = this.property.furnishingType;
+    }
+
+
+    //setting IsReadytoMove field
+    this.isReadytoMove = this.property.isReadytoMove == "Yes" ? true : false;
   }
 }

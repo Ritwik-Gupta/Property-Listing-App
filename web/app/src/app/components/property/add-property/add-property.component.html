@@ -1,97 +1,171 @@
-<div class="justify-content-center d-flex">
-  <div class="card col-lg-6">
-    <div class="card-header h3">Add Property</div>
-    <div class="card-body">
-      <div>
-        <tabset>
-          <tab heading="Basic title" id="tab1">
-            <form class="mt-1 p-3">
-              <div class="mb-3">
-                <label class="form-label mb-2">I want to</label>
-                <div class="form-inline d-flex align-items-center mx-2">
-                  <div class="btn-group radio-options" btnRadioGroup [(ngModel)]="buySellOptionsModel" name="sellRentOptions">
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Sell">Sell</label>
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Rent">Rent</label>
+<div class="d-flex justify-content-end">
+  <div class="col-6 mb-5">
+    <div class="card shadow">
+      <div class="card-header h3">List your Property</div>
+      <div class="card-body">
+        <div>
+          <tabset>
+            <!-- Basic Info Form -->
+            <tab heading="Basic Info" id="tab1">
+              <form class="mt-1 p-3" [formGroup]="basicDetailsForm">
+                <div class="mb-4">
+                  <label class="form-label mb-2">I want to</label>
+                  <div class="form-inline d-flex align-items-center mx-2">
+                    <div class="btn-group radio-options" btnRadioGroup formControlName="sellRent" >
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="Sell">Sell</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="Rent">Rent</label>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <!-- {{buySellOptionsModel}} -->
-              <div class="mb-3">
-                <label class="form-label">BHK</label>
-                <div class="form-inline d-flex align-items-center mx-2">
-                  <div class="btn-group radio-options" btnRadioGroup [(ngModel)]="BHKOptionsModel" name="BHKOptions">
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="1">1</label>
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="2">2</label>
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="3">3</label>
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="4">4</label>
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="5">5</label>
+                <div class="mb-4">
+                  <label class="form-label">BHK</label>
+                  <div class="form-inline d-flex align-items-center mx-2">
+                    <div class="btn-group radio-options" btnRadioGroup formControlName="houseSize">
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="1">1</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="2">2</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="3">3</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="4">4</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="5">5</label>
+                    </div>
                   </div>
                 </div>
-                <!-- {{BHKOptionsModel}} -->
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Property Type</label>
-                <div class="form-inline d-flex align-items-center mx-2">
-                  <div class="btn-group radio-options" btnRadioGroup [(ngModel)]="propertyTypeModel" name="propertyTypeOptions">
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="House">House</label>
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Apartment">Apartment</label>
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Duplex">Duplex</label>
+                <div class="mb-4">
+                  <label class="form-label">Property Type</label>
+                  <div class="form-inline d-flex align-items-center mx-2">
+                    <div class="btn-group radio-options" btnRadioGroup formControlName="propertyType">
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="House">House</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="Apartment">Apartment</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="Duplex">Duplex</label>
+                    </div>
                   </div>
                 </div>
-                <!-- {{propertyTypeModel}} -->
-              </div>
-              <div class="mb-3">
-                <label class="form-label">Furnishing Type</label>
-                <div class="form-inline d-flex align-items-center mx-2">
-                  <div class="btn-group radio-options" btnRadioGroup [(ngModel)]="furnishingTypeOptionsModel" name="furnishingTypeOptions">
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Fully">Fully</label>
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Semi">Semi</label>
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Unfurnished">Unfurnished</label>
+                <div class="mb-4">
+                  <label class="form-label">Furnishing Type</label>
+                  <div class="form-inline d-flex align-items-center mx-2">
+                    <div class="btn-group radio-options" btnRadioGroup formControlName="furnishingType">
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="Fully">Fully</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="Semi">Semi</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="Unfurnished">Unfurnished</label>
+                    </div>
                   </div>
                 </div>
-                <!-- {{furnishingTypeOptionsModel}} -->
-              </div>
-            </form>
-          </tab>
-          <tab heading="Pricing and Area">
-            Pricing and Area
-          </tab>
-          <tab heading="Address">Address</tab>
-          <tab heading="Other Detail">
-            <form class="mt-1 p-3">
-              <div class="mb-3">
-                <label class="form-label mb-2">Ready to Move</label>
-                <div class="form-inline d-flex align-items-center mx-2">
-                  <div class="btn-group radio-options" btnRadioGroup [(ngModel)]="readyToMoveOptionsModel" name="readyToMoveOptions">
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="Yes">Yes</label>
-                    <label class="btn btn-sm btn-light border border-secondary" btnRadio="No">No</label>
+                <div class="mb-4 col-10">
+                  <label class="mb-2" for="propertyName">Building/Society/Project Name</label>
+                  <input class="form-control" id="propertyName" formControlName="projectName">
+                  <small class="error-block" *ngIf="!projectName.valid && projectName.touched">Name is required</small>
+                </div>
+                <div class="row gx-5 mb-4">
+                  <div class="form-group col-6">
+                    <label class="mb-2" for="city">City</label>
+                    <input class="form-control" id="city" formControlName="city">
+                    <small class="error-block" *ngIf="!city.valid && city.touched">City is required</small>
+                  </div>
+                  <div class="form-group col-6">
+                    <label class="mb-2" for="state">State</label>
+                    <input class="form-control" id="state" formControlName="state">
+                    <small class="error-block" *ngIf="!state.valid && state.touched">State is required</small>
                   </div>
                 </div>
-                <!-- {{readyToMoveOptionsModel}} -->
-              </div>
-              <div class="mb-3">
-                <label class="form-label mb-2">Posession/ Available from</label>
-                <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
-                  <input type="text"
-                         placeholder="dd/MM/yyyy"
-                         class="form-control"
-                         [bsConfig]="bsConfig"
-                         [(ngModel)]="availaibleFromDate"
-                         name="test"
-                         bsDatepicker>
+              </form>
+            </tab>
+            <!-- Pricing and Area Form -->
+            <tab heading="Pricing and Area">
+              <form class="mt-1 p-3" [formGroup]="pricingAreaDetailsForm">
+                <div class="mb-4">
+                  <label class="form-label mb-2" for="price">Price (in USD)</label>
+                  <input class="form-control" id="price" type="text" formControlName="price">
                 </div>
+                <div class="mb-4">
+                  <label class="form-label mb-2" for="security">Security (in USD)</label>
+                  <input class="form-control" id="security" type="text" formControlName="security">
+                </div>
+                <div class="mb-4">
+                  <label class="form-label mb-2" for="maintainance">Maintainance (in USD)</label>
+                  <input class="form-control" id="maintainance" type="text" formControlName="maintainance">
+                </div>
+                <div class="mb-4">
+                  <label class="form-label mb-2" for="builtArea">Built Area (in sq feet)</label>
+                  <input class="form-control" id="builtArea" type="text" formControlName="builtArea">
+                </div>
+                <div class="mb-4">
+                  <label class="form-label mb-2" for="carpetArea">Carpet Area (in sq feet)</label>
+                  <input class="form-control" id="carpetArea" type="text" formControlName="carpetArea">
+                </div>
+              </form>
+            </tab>
+            <tab heading="Address">Address</tab>
+            <!-- Other Details Form -->
+            <tab heading="Other Detail">
+              <form class="mt-1 p-3" [formGroup]="otherDetailsForm">
+                <div class="mb-4">
+                  <label class="form-label mb-2">Ready to Move</label>
+                  <div class="form-inline d-flex align-items-center mx-2">
+                    <div class="btn-group radio-options" btnRadioGroup formControlName="isReadyToMove">
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="Yes">Yes</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="No">No</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label mb-2">Posession/ Available from</label>
+                  <div class="col-xs-12 col-12 col-md-4 form-group mb-4">
+                    <input type="text"
+                          placeholder="dd/MM/yyyy"
+                          class="form-control"
+                          [bsConfig]="bsConfig"
+                          formControlName="availableFrom"
+                          bsDatepicker>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label mb-2" for="customRange1">Age of Property (In Years)</label>
+                    <input type="range" class="form-range w-75 my-2" id="customRange1" min="0" max="45" value="5" formControlName="propertyAge" (input)="onChangePropertyAgeSlider($event)">
+                    <br><label class="bg-secondary text-light rounded-2 px-2 py-1">{{propertyAge.value}} Year(s)</label>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label mb-2">Gated Community</label>
+                  <div class="form-inline d-flex align-items-center mx-2">
+                    <div class="btn-group radio-options" btnRadioGroup formControlName="isGated">
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="Yes">Yes</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="No">No</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label mb-2">Direction Facing</label>
+                  <div class="form-inline d-flex align-items-center mx-2">
+                    <div class="btn-group radio-options" btnRadioGroup formControlName="directionFacing">
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="North">North</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="South">South</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="East">East</label>
+                      <label class="btn btn-sm btn-light border border-secondary" btnRadio="West">West</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label mb-2" for="property-description">Description</label>
+                  <textarea class="form-control" id="property-description" type="text" rows="3"></textarea>
+                </div>
+              </form>
+            </tab>
+            <tab heading="Photos">
+              <div class="my-2 p-3">
+                <form>
+                  <label for="property-images" class="pb-4">Upload your property Images</label>
+                  <input class="form-control" type="file" id="property-images">
+                </form>
               </div>
-              <!-- {{availaibleFromDate | date:'medium'}} -->
-              <div class="mb-3">
-                <label class="form-label mb-2" for="customRange1">Age of Property (In Years)</label>
-                  <input type="range" class="form-range" id="customRange1" min="0" max="25" value="5" [(ngModel)]="propertyAge" (input)="onChangePropertyAgeSlider($event)">
-                  <p class="bg-secondary text-light d-inline-flex rounded-2 px-2 py-1">{{propertyAge}} Year(s)</p>
-              </div>
-            </form>
-          </tab>
-          <tab heading="Photos">Photos</tab>
-        </tabset>
+            </tab>
+          </tabset>
+        </div>
+        <div class="d-flex flex-row justify-content-between mx-3">
+          <button class="btn btn-secondary col-4">Previous</button>
+          <button class="btn btn-primary col-4">Next</button>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="col-3" style="margin-left: 50px;">
+    <!-- <app-property-card ></app-property-card> -->
   </div>
 </div>

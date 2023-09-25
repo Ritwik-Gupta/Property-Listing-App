@@ -7,9 +7,20 @@
     </div>
   </div>
   <div class="card-body">
-    <h5  class="card-title">{{property.name}}</h5>
-    <small class="card-text">{{property.type}}</small>
-    <strong><p>Price: {{property.price}}</p></strong>
+    <h4  class="card-title text-primary">{{property.name}}</h4>
+    <small class="card-text">in {{property.address}}</small><br>
+    <strong>
+      <small class="card-text">{{furnishingType}}</small>
+      <small *ngIf="isReadytoMove"> | Ready to Move</small>
+    </strong>
+    <hr class="my-1">
+    <span class="fw-bold">
+      <small>Price: </small>
+      <small class="text-danger fst-italic">$ {{property.price}}</small> |
+      <small>Area: </small>
+      <small class="text-danger fst-italic">{{property.area}} sqft.</small>
+    </span>
+
   </div>
 </div>
 
