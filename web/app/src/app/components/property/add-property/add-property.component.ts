@@ -14,6 +14,7 @@ export class AddPropertyComponent implements OnInit {
   //configuration
   bsConfig?: Partial<BsDatepickerConfig> = Object.assign({}, { containerClass: 'theme-blue' });
 
+  //#region  Basic Detils
   //basic details form group
   basicDetailsForm =  new FormGroup({
     sellRent: new FormControl(SellRent.Rent),
@@ -43,6 +44,9 @@ export class AddPropertyComponent implements OnInit {
   }
   //#endregion
 
+  //#endregion
+
+  //#region Pricing Details
   //pricing and area details
   pricingAreaDetailsForm = new FormGroup({
     price: new FormControl("", Validators.required),
@@ -65,16 +69,38 @@ export class AddPropertyComponent implements OnInit {
     return this.pricingAreaDetailsForm.get("carpetArea");
   }
   //#endregion
+  //#endregion
 
+  //#region Address Details
+  //Address details form
+  addressDetailsForm = new FormGroup({
+    addressL1: new FormControl("", Validators.required),
+    addressL2: new FormControl(""),
+    city: new FormControl("", Validators.required),
+    pincode: new FormControl("", Validators.required),
+    state: new FormControl("", Validators.required),
+    country: new FormControl("", Validators.required)
+  })
+
+  //#region getters for Address details form
+  get addressL1() {
+    return this.addressDetailsForm.get("addressL1");
+  }get addressL2() {
+    return this.addressDetailsForm.get("addressL2");
+  }get cityA() {
+    return this.addressDetailsForm.get("city");
+  }get pincode() {
+    return this.addressDetailsForm.get("pincode");
+  }get stateA() {
+    return this.addressDetailsForm.get("state");
+  }get country() {
+    return this.addressDetailsForm.get("country");
+  }
+  //#endregion
+  //#endregion
+
+  //#region Other Details Form
   //other details form
-  // otherDetails: OtherDetails = {
-  //   isReadyToMove : YesNo.Yes,
-  //   availableFrom : new Date("2022-03-25"),
-  //   propertyAge : 9,
-  //   isGated : YesNo.No,
-  //   directionFacing : DirectionFacing.South
-  // }
-
   otherDetailsForm = new FormGroup({
     isReadyToMove: new FormControl(YesNo.No, Validators.required),
     availableFrom: new FormControl(new Date("2022-03-25"), Validators.required),
@@ -95,6 +121,8 @@ export class AddPropertyComponent implements OnInit {
   }get directionFacing() {
     return this.otherDetailsForm.get("directionFacing")
   }
+  //#endregion
+  //#endregion
 
   ngOnInit(): void {
     console.log(this.basicDetailsForm.value);

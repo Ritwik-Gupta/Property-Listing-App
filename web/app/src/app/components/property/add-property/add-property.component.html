@@ -74,26 +74,68 @@
                 <div class="mb-4">
                   <label class="form-label mb-2" for="price">Price (in USD)</label>
                   <input class="form-control" id="price" type="text" formControlName="price">
+                  <small class="error-block" *ngIf="!price.valid && price.touched">field is required</small>
                 </div>
                 <div class="mb-4">
                   <label class="form-label mb-2" for="security">Security (in USD)</label>
                   <input class="form-control" id="security" type="text" formControlName="security">
+                  <small class="error-block" *ngIf="!security.valid && security.touched">field is required</small>
                 </div>
                 <div class="mb-4">
                   <label class="form-label mb-2" for="maintainance">Maintainance (in USD)</label>
                   <input class="form-control" id="maintainance" type="text" formControlName="maintainance">
+                  <small class="error-block" *ngIf="!maintainance.valid && maintainance.touched">field is required</small>
                 </div>
                 <div class="mb-4">
                   <label class="form-label mb-2" for="builtArea">Built Area (in sq feet)</label>
                   <input class="form-control" id="builtArea" type="text" formControlName="builtArea">
+                  <small class="error-block" *ngIf="!builtArea.valid && builtArea.touched">field is required</small>
                 </div>
                 <div class="mb-4">
                   <label class="form-label mb-2" for="carpetArea">Carpet Area (in sq feet)</label>
                   <input class="form-control" id="carpetArea" type="text" formControlName="carpetArea">
+                  <small class="error-block" *ngIf="!carpetArea.valid && carpetArea.touched">field is required</small>
                 </div>
               </form>
             </tab>
-            <tab heading="Address">Address</tab>
+            <!-- Address Form -->
+            <tab heading="Address">
+              <form class="mt-1 p-3" [formGroup]="addressDetailsForm">
+                <div class="mb-4">
+                  <label class="form-label" for="address1">Address line 1</label>
+                  <input class="form-control" type="text" id="address1" formControlName="addressL1">
+                  <small class="error-block" *ngIf="!addressL1.valid && addressL1.touched">field is required</small>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label" for="address2">Address line 2 <span class="text-muted">(optional)</span></label>
+                  <input class="form-control" type="text" id="address2" formControlName="addressL2">
+                </div>
+                <div class="row gx-5 mb-4">
+                  <div class="form-group col-6">
+                    <label class="mb-2" for="cityAddress">City</label>
+                    <input class="form-control" id="cityAddress" formControlName="city">
+                    <small class="error-block" *ngIf="!cityA.valid && cityA.touched">field is required</small>
+                  </div>
+                  <div class="form-group col-6">
+                    <label class="mb-2" for="pinCode">Pincode</label>
+                    <input class="form-control" id="pinCode" formControlName="pincode">
+                    <small class="error-block" *ngIf="!pincode.valid && pincode.touched">field is required</small>
+                  </div>
+                </div>
+                <div class="row gx-5 mb-4">
+                  <div class="form-group col-6">
+                    <label class="mb-2" for="stateAddress">State</label>
+                    <input class="form-control" id="stateAddress" formControlName="state">
+                    <small class="error-block" *ngIf="!stateA.valid && stateA.touched">field is required</small>
+                  </div>
+                  <div class="form-group col-6">
+                    <label class="mb-2" for="country">Country</label>
+                    <input class="form-control" id="country" formControlName="country">
+                    <small class="error-block" *ngIf="!country.valid && country.touched">field is required</small>
+                  </div>
+                </div>
+              </form>
+            </tab>
             <!-- Other Details Form -->
             <tab heading="Other Detail">
               <form class="mt-1 p-3" [formGroup]="otherDetailsForm">
