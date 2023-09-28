@@ -1,12 +1,12 @@
 <div class="card shadow p-2 rounded " style="width: 20rem;">
   <div class="card-wrapper">
     <img src="../../../assets/static/default_house.png" class="card-image">
-    <div class="d-flex d-flex option-icons">
+    <div class="d-flex d-flex option-icons" *ngIf="!isPropertyPreview">
       <div class="mx-2"><i class="fa-solid fa-pen-to-square fa-lg" data-fa-mask="fa-solid fa-square" routerLink="view-property/{{property.id}}"></i></div>
       <div class="mx-2"><i class="fa-solid fa-address-book fa-lg" data-fa-mask="fa-solid fa-square"></i></div>
     </div>
   </div>
-  <div class="card-body">
+  <div class="card-body" *ngIf="!isPropertyPreview">
     <h4  class="card-title text-primary">{{property.name}}</h4>
     <small class="card-text">in {{property.address}}</small><br>
     <strong>
@@ -18,9 +18,27 @@
       <small>Price: </small>
       <small class="text-danger fst-italic">$ {{property.price}}</small> |
       <small>Area: </small>
-      <small class="text-danger fst-italic">{{property.area}} sqft.</small>
+      <small class="text-danger fst-italic">{{property.builtArea}} sqft.</small>
     </span>
-
+  </div>
+  <div class="card-body" *ngIf="isPropertyPreview">
+    <h4  class="card-title text-primary">{{property.houseSize}}BHK {{property.propertyType}}</h4>
+    <span *ngIf="property.propertyName">
+      <small class="card-text">in {{property.propertyName}}</small>
+      <small class="card-text" *ngIf="property.streetAddress">, {{property.streetAddress}}</small>
+    </span>
+    <br>
+    <span>
+      <small class="card-text">{{property.furnishingType}} <span *ngIf="property.furnishingType!='Unfurnished'"> Furnished</span></small>
+      <small *ngIf="property.isReadyToMove=='Yes'"> | Ready to Move</small>
+    </span>
+    <hr class="my-1">
+    <span >
+      <small>Price: </small>
+      <small class="text-danger fst-italic">$ {{property.askPrice}}</small> |
+      <small>Area: </small>
+      <small class="text-danger fst-italic">{{property.totalArea}} sqft.</small>
+    </span>
   </div>
 </div>
 

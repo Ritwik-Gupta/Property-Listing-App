@@ -37,6 +37,11 @@
 
 
 .card-body .card-title {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: Abel;
+  font-weight: bolder;
+}
+
+small {
+  font-weight:500;
 }
 

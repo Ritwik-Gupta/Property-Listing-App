@@ -1,20 +1,15 @@
 import { SellRent, FurnishingType, PropertyType, YesNo, DirectionFacing } from "./property-enums";
-import { HouseSize } from "./property-enums";
+import { BHKType } from "./property-enums";
 
-export interface IProperty {
+export interface IProperty extends BasicInfo, PricingAndArea, OtherDetails {
   id: number,
   name: string,
-  type: string,
-  price: string,
-  isReadytoMove: string,
-  furnishingType: string
-  address: string,
-  area: string,
+  address: string
 }
 
 export interface BasicInfo {
   sellRent: SellRent;
-  houseSize: HouseSize,
+  houseSize: BHKType,
   propertyType: PropertyType,
   furnishingType: FurnishingType,
   projectName: string,

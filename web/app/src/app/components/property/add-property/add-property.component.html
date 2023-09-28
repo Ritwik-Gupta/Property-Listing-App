@@ -3,10 +3,10 @@
     <div class="card shadow">
       <div class="card-header h3">List your Property</div>
       <div class="card-body">
-        <div>
-          <tabset>
+        <div class="border p-3 rounded">
+          <tabset #staticTabs>
             <!-- Basic Info Form -->
-            <tab heading="Basic Info" id="tab1">
+            <tab heading="Basic Info" id="tab1" (selectTab)="setNavigationButtonStatus('tab1')">
               <form class="mt-1 p-3" [formGroup]="basicDetailsForm">
                 <div class="mb-4">
                   <label class="form-label mb-2">I want to</label>
@@ -49,12 +49,19 @@
                     </div>
                   </div>
                 </div>
-                <div class="mb-4 col-10">
-                  <label class="mb-2" for="propertyName">Building/Society/Project Name</label>
-                  <input class="form-control" id="propertyName" formControlName="projectName">
-                  <small class="error-block" *ngIf="!projectName.valid && projectName.touched">Name is required</small>
+                <div class="mb-4 row gx-5 ">
+                  <div class="form-group col-6">
+                    <label class="mb-2" for="propertyName">Building/Society/Project Name</label>
+                    <input class="form-control" id="propertyName" formControlName="projectName">
+                    <small class="error-block" *ngIf="!projectName.valid && projectName.touched">Name is required</small>
+                  </div>
+                  <div class="form-group col-6">
+                    <label class="mb-2" for="street">Street Address</label>
+                    <input class="form-control" id="street" formControlName="streetAddress">
+                    <small class="error-block" *ngIf="!streetAddress.valid && streetAddress.touched">Street address is required</small>
+                  </div>
                 </div>
-                <div class="row gx-5 mb-4">
+                <div class="row gx-5">
                   <div class="form-group col-6">
                     <label class="mb-2" for="city">City</label>
                     <input class="form-control" id="city" formControlName="city">
@@ -69,7 +76,7 @@
               </form>
             </tab>
             <!-- Pricing and Area Form -->
-            <tab heading="Pricing and Area">
+            <tab heading="Pricing and Area" id="tab2" (selectTab)="setNavigationButtonStatus('tab2')">
               <form class="mt-1 p-3" [formGroup]="pricingAreaDetailsForm">
                 <div class="mb-4">
                   <label class="form-label mb-2" for="price">Price (in USD)</label>
@@ -99,7 +106,7 @@
               </form>
             </tab>
             <!-- Address Form -->
-            <tab heading="Address">
+            <tab heading="Address" id="tab3" (selectTab)="setNavigationButtonStatus('tab3')">
               <form class="mt-1 p-3" [formGroup]="addressDetailsForm">
                 <div class="mb-4">
                   <label class="form-label" for="address1">Address line 1</label>
@@ -137,7 +144,7 @@
               </form>
             </tab>
             <!-- Other Details Form -->
-            <tab heading="Other Detail">
+            <tab heading="Other Detail"id="tab4" (selectTab)="setNavigationButtonStatus('tab4')">
               <form class="mt-1 p-3" [formGroup]="otherDetailsForm">
                 <div class="mb-4">
                   <label class="form-label mb-2">Ready to Move</label>
@@ -190,7 +197,8 @@
                 </div>
               </form>
             </tab>
-            <tab heading="Photos">
+            <!-- Upload Photos Form -->
+            <tab heading="Photos" id="tab5" (selectTab)="setNavigationButtonStatus('tab5')">
               <div class="my-2 p-3">
                 <form>
                   <label for="property-images" class="pb-4">Upload your property Images</label>
@@ -200,14 +208,16 @@
             </tab>
           </tabset>
         </div>
-        <div class="d-flex flex-row justify-content-between mx-3">
-          <button class="btn btn-secondary col-4">Previous</button>
-          <button class="btn btn-primary col-4">Next</button>
+        <div class="d-flex flex-row-reverse justify-content-between x-2 mt-3">
+          <button class="btn btn-primary col-4" *ngIf="nextButton" (click)="navigateTabs('next')">Next</button>
+          <button class="btn btn-primary col-4" *ngIf="submitButton">Submit</button>
+          <button class="btn btn-secondary col-4" *ngIf="prevButton" (click)="navigateTabs('prev')">Previous</button>
         </div>
       </div>
     </div>
   </div>
   <div class="col-3" style="margin-left: 50px;">
-    <!-- <app-property-card ></app-property-card> -->
+    <app-property-card [property]="propertyPreview" [isPropertyPreview]="IsPropertyPreview"></app-property-card>
   </div>
 </div>
+

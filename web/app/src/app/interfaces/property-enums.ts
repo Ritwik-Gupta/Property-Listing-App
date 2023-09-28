@@ -3,7 +3,7 @@ export enum SellRent {
   Rent = "Rent"
 }
 
-export enum HouseSize {
+export enum BHKType {
   OneBHK = "1",
   TwoBHK = "2",
   ThreeBHK = "3",

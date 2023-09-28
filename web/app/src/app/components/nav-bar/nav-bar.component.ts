@@ -14,7 +14,6 @@ export class NavBarComponent {
   constructor(private authService: AuthService, private router: Router) { }
 
   isLoggedIn() {
-    debugger;
     let exists = this.authService.isUserLoggedIn();
     if(exists) {
       this.loggedInUser =  this.authService.getLoggedInUser();
