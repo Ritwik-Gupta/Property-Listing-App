@@ -1,0 +1,25 @@
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+input {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+
+img {
+  max-height: 200px;
+  max-width: 150px;
+  border-radius: 10px;
+}
+
+div#imagesPreview {
+  border-style: dotted;
+  border-radius: 10px;
+  background-color:azure;
+  border-color: darkgray;
+}

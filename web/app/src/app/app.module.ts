@@ -24,6 +24,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { AlertModule } from 'ngx-bootstrap/alert';
+import { ToastrModule } from 'ngx-toastr';
+import { UploadImagePreviewComponent } from './components/helper-components/upload-image-preview/upload-image-preview.component';
 
 const appRoutes: Routes = [
   {path: "", component: UserLoginComponent},
@@ -50,6 +53,7 @@ const appRoutes: Routes = [
     AddPropertyComponent,
     UserLoginComponent,
     UserRegisterComponent,
+    UploadImagePreviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,9 @@ const appRoutes: Routes = [
     TabsModule.forRoot(),
     FormsModule,
     ButtonsModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    AlertModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   providers: [HousingService, UserService, AuthService],
   bootstrap: [AppComponent]

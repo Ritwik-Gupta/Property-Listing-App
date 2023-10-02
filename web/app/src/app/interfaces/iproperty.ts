@@ -1,7 +1,7 @@
 import { SellRent, FurnishingType, PropertyType, YesNo, DirectionFacing } from "./property-enums";
 import { BHKType } from "./property-enums";
 
-export interface IProperty extends BasicInfo, PricingAndArea, OtherDetails {
+export interface IProperty extends BasicInfo, PricingAndArea, OtherDetails, PropertyImages{
   id: number,
   name: string,
   address: string
@@ -31,6 +31,9 @@ export interface OtherDetails {
   propertyAge: number,
   isGated: YesNo,
   directionFacing: DirectionFacing
+}
 
+export interface PropertyImages {
+  images: Array<string>;
 }
 

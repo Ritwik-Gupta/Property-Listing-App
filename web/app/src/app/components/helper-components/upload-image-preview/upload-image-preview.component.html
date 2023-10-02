@@ -1,0 +1,16 @@
+<div>
+  <div class="d-flex flex-row row"  *ngIf="uploadImagesURL.length>0" id="imagesPreview">
+    <div class="col-4 p-2" *ngFor="let fileURI of uploadImagesURL">
+      <img [src]="fileURI" class="shadow">
+    </div>
+  </div>
+  <div class="d-flex flex-row justify-content-center">
+    <form>
+      <button class="file btn btn-info mt-4">
+        Add Photos
+        <input type="file" name="file" multiple="" (change)="selectFiles($event)"/>
+      </button><br>
+      <small class="text-muted mx-1">(Upto 5 images)</small>
+    </form>
+  </div>
+</div>

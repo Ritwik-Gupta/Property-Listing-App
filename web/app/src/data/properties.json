@@ -1,122 +1,134 @@
 [
   {
     "id": 1,
-    "name": "House1",
-    "type": "Type1",
+    "propertyName": "Biswas Villa",
+    "propertyType": "House",
+    "houseSize": 5,
     "price": 120000,
     "isReadyToMove": "Yes",
     "furnishingType": "Semi",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Park Street, Welington"
   },
   {
     "id": 2,
-    "name": "House2",
-    "type": "Type2",
+    "propertyName": "Mahagun Moderne",
+    "propertyType": "Duplex",
+    "houseSize": 3,
     "price": 220000,
     "isReadyToMove": "Yes",
     "furnishingType": "Unfurnished",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Sector 78, Noida"
   },
   {
     "id": 3,
-    "name": "House3",
-    "type": "Type3",
+    "propertyName": "Ambar Vaidyash",
+    "propertyType": "House",
+    "houseSize": 3,
     "price": 180000,
     "isReadyToMove": "Yes",
     "furnishingType": "Semi",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Sector 78, Noida"
   },
   {
     "id": 4,
-    "name": "House4",
-    "type": "Type4",
+    "propertyName": "Antariksh Kanball",
+    "propertyType": "Apartment",
+    "houseSize": 3,
     "price": 125000,
     "isReadyToMove": "Yes",
     "furnishingType": "Unfurnished",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Sector 78, Noida"
   },
   {
     "id": 5,
-    "name": "House5",
-    "type": "Type5",
+    "propertyName": "House5",
+    "propertyType": "Apartment",
+    "houseSize": 4,
     "price": 105000,
     "isReadyToMove": "Yes",
     "furnishingType": "Unfurnished",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Sector 78, Noida"
   },
   {
     "id": 6,
-    "name": "House6",
-    "type": "Type6",
+    "propertyName": "Ashartara Housing",
+    "propertyType": "House",
+    "houseSize": 2,
     "price": 200000,
     "isReadyToMove": "No",
     "furnishingType": "Semi",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Sector 78, Noida"
   },
   {
     "id": 7,
-    "name": "House7",
-    "type": "Type7",
+    "propertyName": "Bilwada Greens",
+    "propertyType": "House",
+    "houseSize": 2,
     "price": 250000,
     "isReadyToMove": "Yes",
     "furnishingType": "Fully",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Sector 78, Noida"
   },
   {
     "id": 8,
-    "name": "House8",
-    "type": "Type8",
+    "propertyName": "Aggarwal Villa",
+    "propertyType": "Duplex",
+    "houseSize": 4,
     "price": 430000,
     "isReadyToMove": "Yes",
     "furnishingType": "Fully",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Sector 78, Noida"
   },
   {
     "id": 9,
-    "name": "House9",
-    "type": "Type9",
+    "propertyName": "Mahesh Apartments",
+    "propertyType": "Apartment",
+    "houseSize": 3,
     "price": 290000,
     "isReadyToMove": "Yes",
     "furnishingType": "Semi",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Sector 78, Noida"
   },
   {
     "id": 10,
-    "name": "House10",
-    "type": "Type10",
+    "propertyName": "Sukhdev Oriental Heights",
+    "propertyType": "Apartment",
+    "houseSize": 3,
     "price": 270000,
     "isReadyToMove": "Yes",
     "furnishingType": "Fully",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Sector 78, Noida"
   },
   {
     "id": 11,
-    "name": "House11",
-    "type": "Type11",
+    "propertyName": "Ganpati Dera",
+    "propertyType": "House",
+    "houseSize": 4,
     "price": 2110000,
     "isReadyToMove": "Yes",
     "furnishingType": "Semi",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Sector 78, Noida"
   },
   {
     "id": 12,
-    "name": "House12",
-    "type": "Type12",
+    "propertyName": "Bhatt Residence",
+    "propertyType": "Duplex",
+    "houseSize": 3,
     "price": 150000,
     "isReadyToMove": "Yes",
     "furnishingType": "Fully",
-    "address": "Park Street, Welligton",
-    "area": "1250"
+    "builtArea": "1250",
+    "streetAddress":"Sector 78, Noida"
   }
 ]

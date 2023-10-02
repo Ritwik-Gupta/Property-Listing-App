@@ -45,3 +45,9 @@ small {
   font-weight:500;
 }
 
+span#propertyName text{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color:dimgray;
+  font-size: large;
+}
+

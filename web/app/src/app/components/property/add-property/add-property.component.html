@@ -79,29 +79,41 @@
             <tab heading="Pricing and Area" id="tab2" (selectTab)="setNavigationButtonStatus('tab2')">
               <form class="mt-1 p-3" [formGroup]="pricingAreaDetailsForm">
                 <div class="mb-4">
-                  <label class="form-label mb-2" for="price">Price (in USD)</label>
+                  <label class="form-label mb-2" for="price">Price (in INR)</label>
                   <input class="form-control" id="price" type="text" formControlName="price">
-                  <small class="error-block" *ngIf="!price.valid && price.touched">field is required</small>
+                  <span *ngIf="!price.valid">
+                    <small class="error-block" *ngIf="price.errors.required && price.touched">field is required</small>
+                    <small class="error-block" *ngIf="price.errors.pattern && price.dirty">only numbers allowed</small>
+                  </span>
                 </div>
                 <div class="mb-4">
-                  <label class="form-label mb-2" for="security">Security (in USD)</label>
+                  <label class="form-label mb-2" for="security">Security (in INR)</label>
                   <input class="form-control" id="security" type="text" formControlName="security">
-                  <small class="error-block" *ngIf="!security.valid && security.touched">field is required</small>
+                  <span *ngIf="!security.valid">
+                    <small class="error-block" *ngIf="security.errors.pattern && security.dirty">only numbers allowed</small>
+                  </span>
                 </div>
                 <div class="mb-4">
-                  <label class="form-label mb-2" for="maintainance">Maintainance (in USD)</label>
+                  <label class="form-label mb-2" for="maintainance">Maintainance (in INR)</label>
                   <input class="form-control" id="maintainance" type="text" formControlName="maintainance">
-                  <small class="error-block" *ngIf="!maintainance.valid && maintainance.touched">field is required</small>
+                  <span *ngIf="!maintainance.valid">
+                    <small class="error-block" *ngIf="maintainance.errors.pattern && maintainance.dirty">only numbers allowed</small>
+                  </span>
                 </div>
                 <div class="mb-4">
                   <label class="form-label mb-2" for="builtArea">Built Area (in sq feet)</label>
                   <input class="form-control" id="builtArea" type="text" formControlName="builtArea">
-                  <small class="error-block" *ngIf="!builtArea.valid && builtArea.touched">field is required</small>
+                  <span *ngIf="!builtArea.valid">
+                    <small class="error-block" *ngIf="builtArea.errors.required && builtArea.touched">field is required</small>
+                    <small class="error-block" *ngIf="builtArea.errors.pattern && builtArea.dirty">only numbers allowed</small>
+                  </span>
                 </div>
                 <div class="mb-4">
                   <label class="form-label mb-2" for="carpetArea">Carpet Area (in sq feet)</label>
                   <input class="form-control" id="carpetArea" type="text" formControlName="carpetArea">
-                  <small class="error-block" *ngIf="!carpetArea.valid && carpetArea.touched">field is required</small>
+                  <span *ngIf="!carpetArea.valid">
+                    <small class="error-block" *ngIf="carpetArea.errors.pattern && carpetArea.dirty">only numbers allowed</small>
+                  </span>
                 </div>
               </form>
             </tab>
@@ -199,18 +211,15 @@
             </tab>
             <!-- Upload Photos Form -->
             <tab heading="Photos" id="tab5" (selectTab)="setNavigationButtonStatus('tab5')">
-              <div class="my-2 p-3">
-                <form>
-                  <label for="property-images" class="pb-4">Upload your property Images</label>
-                  <input class="form-control" type="file" id="property-images">
-                </form>
+              <div class="mt-2 p-3">
+                <app-upload-image-preview (uploadImagesEvent)="onImageUpload($event)"></app-upload-image-preview>
               </div>
             </tab>
           </tabset>
         </div>
         <div class="d-flex flex-row-reverse justify-content-between x-2 mt-3">
           <button class="btn btn-primary col-4" *ngIf="nextButton" (click)="navigateTabs('next')">Next</button>
-          <button class="btn btn-primary col-4" *ngIf="submitButton">Submit</button>
+          <button class="btn btn-primary col-4" *ngIf="submitButton" (click)="onSubmitForm()">Submit</button>
           <button class="btn btn-secondary col-4" *ngIf="prevButton" (click)="navigateTabs('prev')">Previous</button>
         </div>
       </div>

@@ -3,7 +3,6 @@ export interface IPropertyPreview {
   propertyType: string,
   propertyName: string,
   streetAddress: string,
-  // areaAddress: string,
   furnishingType: string,
   isReadyToMove: string,
   askPrice: string,

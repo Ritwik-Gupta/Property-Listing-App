@@ -1,33 +1,31 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BsDatepickerConfig } from 'ngx-bootstrap/datepicker';
 import { FormGroup, FormControl, ValidatorFn, Validators, FormsModule } from '@angular/forms';
-import { BasicInfo, IProperty, OtherDetails, PricingAndArea } from 'src/app/interfaces/iproperty';
+// import { BasicInfo, IProperty, OtherDetails, PricingAndArea } from 'src/app/interfaces/iproperty';
 import { DirectionFacing, FurnishingType, BHKType, PropertyType, SellRent, YesNo } from 'src/app/interfaces/property-enums';
 import { TabsetComponent } from 'ngx-bootstrap/tabs';
-import { Observable } from 'rxjs';
 import { IPropertyPreview } from 'src/app/interfaces/iproperty-preview';
+import { ToastrService } from 'ngx-toastr';
+import { IProperty } from 'src/app/interfaces/iproperty';
 
 @Component({
   selector: 'app-add-property',
   templateUrl: './add-property.component.html',
   styleUrls: ['./add-property.component.css']
 })
+
 export class AddPropertyComponent implements OnInit {
   @ViewChild('staticTabs', { static: false }) staticTabs?: TabsetComponent;
   activeTabId = 1
   activeTabName = 'tab1';
   IsPropertyPreview = true;
+  finalPropertyObject: IProperty;
+  UploadedImages: Array<string> = [];
 
   //navigation button flags
   prevButton: boolean;
   nextButton: boolean;
   submitButton: boolean;
-
-  //declare the forms here
-  // public basicDetailsForm: FormGroup;
-  // public pricingAreaDetailsForm: FormGroup;
-  // public addressDetailsForm: FormGroup;
-  // public otherDetailsForm: FormGroup;
 
   //configuration
   bsConfig?: Partial<BsDatepickerConfig> = Object.assign({}, { containerClass: 'theme-blue' });
@@ -51,7 +49,7 @@ export class AddPropertyComponent implements OnInit {
   pricingAreaDetailsForm = new FormGroup({
     price: new FormControl("", [Validators.required, Validators.pattern("^[0-9]*$")]),
     security: new FormControl("", [Validators.pattern("^[0-9]*$")]),
-    maintainance: new FormControl("", Validators.required),
+    maintainance: new FormControl("", [Validators.pattern("^[0-9]*$")]),
     builtArea: new FormControl("", [Validators.required, Validators.pattern("^[0-9]*$")]),
     carpetArea: new FormControl("", [Validators.pattern("^[0-9]*$")])
   })
@@ -146,6 +144,8 @@ export class AddPropertyComponent implements OnInit {
   //#endregion
 
 
+  constructor(private toastr: ToastrService) {}
+
   ngOnInit(): void {
     this.setNavigationButtonStatus(this.activeTabName);
     this.basicDetailsForm.valueChanges.subscribe(data => {
@@ -208,7 +208,6 @@ export class AddPropertyComponent implements OnInit {
     this.otherDetailsForm.patchValue ({propertyAge: event.target.value});
   }
 
-
   //rules for enabling/disabling the prev/next/submit buttons
   //setting the active tab
   setNavigationButtonStatus(activeTab: string){
@@ -228,6 +227,46 @@ export class AddPropertyComponent implements OnInit {
         this.prevButton = true;
         this.nextButton = true;
         this.submitButton = false;
+    }
+  }
+
+  onImageUpload(upoadedImages: Array<string>) {
+    // console.log(upoadedImages);
+    this.UploadedImages = upoadedImages;
+  }
+
+  onSubmitForm() {
+    debugger;
+    if(this.basicDetailsForm.valid && this.pricingAreaDetailsForm.valid &&
+      this.addressDetailsForm.valid && this.otherDetailsForm.valid) {
+
+        this.finalPropertyObject = {
+          id: null,
+          name: this.projectName.value,
+          address: [this.addressL1, this.addressL2.value, this.cityA.value, "Pin - " + this.pincode.value, this.stateA.value, this.country.value].join(", "),
+          sellRent: this.sellRent.value,
+          houseSize: this.houseSize.value,
+          propertyType: this.propertyType.value,
+          furnishingType: this.furnishingType.value,
+          projectName: this.projectName.value,
+          city: this.city.value,
+          state: this.state.value,
+          price: this.price.value,
+          security: this.security.value,
+          maintainance: this.maintainance.value,
+          builtArea: this.builtArea.value,
+          carpetArea: this.carpetArea.value,
+          isReadyToMove: this.isReadyToMove.value,
+          availableFrom: this.availableFrom.value,
+          propertyAge: this.propertyAge.value,
+          isGated: this.isGated.value,
+          directionFacing: this.directionFacing.value,
+          images: this.UploadedImages
+        }
+
+      }
+    else {
+      this.toastr.warning("Kindly fill out all the mandatory fields");
     }
   }
 }

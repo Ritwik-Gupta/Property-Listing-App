@@ -19,7 +19,7 @@
         </div>
         <div class="mb-2">
           <label for="email" class="form-label">Email ID</label>
-          <input type="email" class="form-control" id="email" formControlName="email">
+          <input type="email" class="form-control" id="email" formControlName="email" autocomplete="off">
           <span class="error-block" *ngIf="!email.valid && email.touched">
             <small *ngIf="email.errors.required">Email is required</small>
             <small *ngIf="email.errors.email">Email is Invalid</small>
@@ -27,7 +27,7 @@
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" formControlName="password">
+          <input type="password" class="form-control" id="password" formControlName="password" value="">
           <span *ngIf="!password.valid && password.touched" class="error-block">
             <small *ngIf="password.errors['required']">Password is required</small>
             <small *ngIf="password.errors.minlength || password.errors.maxlength">Password should be between 8-20 characters</small>
@@ -35,7 +35,7 @@
         </div>
         <div class="mb-3">
           <label for="confirmpassword" class="form-label">Confirm Password</label>
-          <input type="password" class="form-control" id="confirmpassword" formControlName="confirmPassword">
+          <input type="password" class="form-control" id="confirmpassword" value="">
           <span *ngIf="!confirmPassword.valid" class="error-block">
             <small *ngIf="confirmPassword.errors['required'] && confirmPassword.touched">Password is required</small>
             <small *ngIf="confirmPassword.dirty && confirmPassword.errors!['notmatched']" class="error-block">Passwords do not match</small>

@@ -2,3 +2,4 @@
 
 @import "../src/assets/static/form-validators.css";
 @import "../src/assets/static/ui-elements-styling.css";
+@import "../node_modules/ngx-toastr/toastr.css";
