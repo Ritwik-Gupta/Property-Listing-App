@@ -8,7 +8,8 @@
     "isReadyToMove": "Yes",
     "furnishingType": "Semi",
     "builtArea": "1250",
-    "streetAddress":"Park Street, Welington"
+    "streetAddress":"Park Street, Welington",
+    "sellRent": "Sell"
   },
   {
     "id": 2,
@@ -19,7 +20,8 @@
     "isReadyToMove": "Yes",
     "furnishingType": "Unfurnished",
     "builtArea": "1250",
-    "streetAddress":"Sector 78, Noida"
+    "streetAddress":"Sector 78, Noida",
+    "sellRent": "Sell"
   },
   {
     "id": 3,
@@ -30,7 +32,8 @@
     "isReadyToMove": "Yes",
     "furnishingType": "Semi",
     "builtArea": "1250",
-    "streetAddress":"Sector 78, Noida"
+    "streetAddress":"Sector 78, Noida",
+    "sellRent": "Sell"
   },
   {
     "id": 4,
@@ -41,7 +44,8 @@
     "isReadyToMove": "Yes",
     "furnishingType": "Unfurnished",
     "builtArea": "1250",
-    "streetAddress":"Sector 78, Noida"
+    "streetAddress":"Sector 78, Noida",
+    "sellRent": "Rent"
   },
   {
     "id": 5,
@@ -52,7 +56,8 @@
     "isReadyToMove": "Yes",
     "furnishingType": "Unfurnished",
     "builtArea": "1250",
-    "streetAddress":"Sector 78, Noida"
+    "streetAddress":"Sector 78, Noida",
+    "sellRent": "Rent"
   },
   {
     "id": 6,
@@ -63,7 +68,8 @@
     "isReadyToMove": "No",
     "furnishingType": "Semi",
     "builtArea": "1250",
-    "streetAddress":"Sector 78, Noida"
+    "streetAddress":"Sector 78, Noida",
+    "sellRent": "Sell"
   },
   {
     "id": 7,
@@ -74,7 +80,8 @@
     "isReadyToMove": "Yes",
     "furnishingType": "Fully",
     "builtArea": "1250",
-    "streetAddress":"Sector 78, Noida"
+    "streetAddress":"Sector 78, Noida",
+    "sellRent": "Rent"
   },
   {
     "id": 8,
@@ -85,7 +92,8 @@
     "isReadyToMove": "Yes",
     "furnishingType": "Fully",
     "builtArea": "1250",
-    "streetAddress":"Sector 78, Noida"
+    "streetAddress":"Sector 78, Noida",
+    "sellRent": "Sell"
   },
   {
     "id": 9,
@@ -96,7 +104,8 @@
     "isReadyToMove": "Yes",
     "furnishingType": "Semi",
     "builtArea": "1250",
-    "streetAddress":"Sector 78, Noida"
+    "streetAddress":"Sector 78, Noida",
+    "sellRent": "Rent"
   },
   {
     "id": 10,
@@ -107,7 +116,8 @@
     "isReadyToMove": "Yes",
     "furnishingType": "Fully",
     "builtArea": "1250",
-    "streetAddress":"Sector 78, Noida"
+    "streetAddress":"Sector 78, Noida",
+    "sellRent": "Rent"
   },
   {
     "id": 11,
@@ -118,7 +128,8 @@
     "isReadyToMove": "Yes",
     "furnishingType": "Semi",
     "builtArea": "1250",
-    "streetAddress":"Sector 78, Noida"
+    "streetAddress":"Sector 78, Noida",
+    "sellRent": "Rent"
   },
   {
     "id": 12,
@@ -129,6 +140,7 @@
     "isReadyToMove": "Yes",
     "furnishingType": "Fully",
     "builtArea": "1250",
-    "streetAddress":"Sector 78, Noida"
+    "streetAddress":"Sector 78, Noida",
+    "sellRent": "Sell"
   }
 ]

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators,
   ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { User } from 'src/app/model/user';
@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './user-register.component.html',
   styleUrls: ['./user-register.component.css']
 })
-export class UserRegisterComponent {
+export class UserRegisterComponent implements OnInit{
 
   constructor(private userService: UserService) {}
 
@@ -19,11 +19,9 @@ export class UserRegisterComponent {
     fname : new FormControl('', Validators.required),
     lname : new FormControl('', Validators.required),
     email : new FormControl('', [Validators.required, Validators.email]),
-    password : new FormControl('', [Validators.required,Validators.minLength(8), Validators.maxLength(20)]),
-    confirmPassword : new FormControl('', [Validators.required,Validators.minLength(8), Validators.maxLength(20),
-    this.passwordMatchingValidator()])
+    password : new FormControl('', [Validators.required,Validators.minLength(8), Validators.maxLength(20), this.passwordMatchingValidator()]),
+    confirmPassword : new FormControl('', [Validators.required, this.passwordMatchingValidator()])
   })
-
 
   passwordMatchingValidator(): ValidatorFn    {
     return (control: AbstractControl): ValidationErrors => {
@@ -31,7 +29,7 @@ export class UserRegisterComponent {
 
       if(value == "") { return null; }
 
-      const passValid = this.userRegistrationForm.get('password').value === this.userRegistrationForm.get('confirmPassword').value;
+      const passValid = this.password.value === this.confirmPassword.value || this.confirmPassword.value == "";
 
       if(!passValid){
         return {notmatched: true};
@@ -40,6 +38,10 @@ export class UserRegisterComponent {
         return null;
       }
     }
+  }
+
+  ngOnInit(): void {
+
   }
 
   // ---------------------------------

@@ -29,16 +29,16 @@
           <label for="password" class="form-label">Password</label>
           <input type="password" class="form-control" id="password" formControlName="password" value="">
           <span *ngIf="!password.valid && password.touched" class="error-block">
-            <small *ngIf="password.errors['required']">Password is required</small>
+            <small *ngIf="password.errors!['required']">Password is required</small>
             <small *ngIf="password.errors.minlength || password.errors.maxlength">Password should be between 8-20 characters</small>
           </span>
         </div>
         <div class="mb-3">
           <label for="confirmpassword" class="form-label">Confirm Password</label>
-          <input type="password" class="form-control" id="confirmpassword" value="">
-          <span *ngIf="!confirmPassword.valid" class="error-block">
-            <small *ngIf="confirmPassword.errors['required'] && confirmPassword.touched">Password is required</small>
-            <small *ngIf="confirmPassword.dirty && confirmPassword.errors!['notmatched']" class="error-block">Passwords do not match</small>
+          <input type="password" class="form-control" id="confirmpassword" formControlName="confirmPassword" value="">
+          <span *ngIf="!confirmPassword.valid || !password.valid" class="error-block">
+            <small *ngIf="confirmPassword.toucged && confirmPassword.value==''">Password is required</small>
+            <small *ngIf="confirmPassword.dirty && (password.errors!['notmatched'])" class="error-block">Passwords do not match</small>
           </span>
           <small *ngIf="confirmPassword.valid && password.valid" class="text-success">Passwords match <i class="bi bi-check-lg text-success"></i></small>
         </div>

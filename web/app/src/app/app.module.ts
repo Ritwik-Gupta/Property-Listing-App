@@ -11,7 +11,6 @@ import { PropertyCardComponent } from './components/property/property-card/prope
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { HousingService } from './services/housing.service';
 import { BuyPropertyComponent } from './components/property/buy-property/buy-property.component';
-import { SellPropertyComponent } from './components/property/sell-property/sell-property.component';
 import { ViewPropertyComponent } from './components/property/view-property/view-property.component';
 import { ErrorPageComponent } from './components/error-page/error-page.component';
 import { AddPropertyComponent } from './components/property/add-property/add-property.component';
@@ -27,12 +26,13 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { AlertModule } from 'ngx-bootstrap/alert';
 import { ToastrModule } from 'ngx-toastr';
 import { UploadImagePreviewComponent } from './components/helper-components/upload-image-preview/upload-image-preview.component';
+import { RentPropertyComponent } from './components/property/rent-property/rent-property.component';
 
 const appRoutes: Routes = [
   {path: "", component: UserLoginComponent},
   {path: "dashboard", component: PropertyListComponent},
   {path: "buy-property", component: BuyPropertyComponent},
-  {path: "sell-property", component: SellPropertyComponent},
+  {path: "rent-property", component:RentPropertyComponent},
   {path: "view-property/:id", component: ViewPropertyComponent},
   {path: "post-ad", component: AddPropertyComponent},
   {path: "user-login", component: UserLoginComponent},
@@ -47,13 +47,13 @@ const appRoutes: Routes = [
     PropertyCardComponent,
     NavBarComponent,
     BuyPropertyComponent,
-    SellPropertyComponent,
     ViewPropertyComponent,
     ErrorPageComponent,
     AddPropertyComponent,
     UserLoginComponent,
     UserRegisterComponent,
     UploadImagePreviewComponent,
+    RentPropertyComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +67,7 @@ const appRoutes: Routes = [
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
     AlertModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
   ],
   providers: [HousingService, UserService, AuthService],
   bootstrap: [AppComponent]

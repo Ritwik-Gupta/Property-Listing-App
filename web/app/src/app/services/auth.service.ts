@@ -46,6 +46,6 @@ export class AuthService {
 
   logoutUser(): void {
     localStorage.removeItem("token")
-  }
+1111  }
 
 }

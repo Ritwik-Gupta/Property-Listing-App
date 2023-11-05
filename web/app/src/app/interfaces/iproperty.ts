@@ -3,8 +3,7 @@ import { BHKType } from "./property-enums";
 
 export interface IProperty extends BasicInfo, PricingAndArea, OtherDetails, PropertyImages{
   id: number,
-  name: string,
-  address: string
+  fullAddress: string
 }
 
 export interface BasicInfo {
@@ -12,7 +11,7 @@ export interface BasicInfo {
   houseSize: BHKType,
   propertyType: PropertyType,
   furnishingType: FurnishingType,
-  projectName: string,
+  propertyName: string,
   city: string,
   state: string
 }

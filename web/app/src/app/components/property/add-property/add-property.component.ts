@@ -7,6 +7,8 @@ import { TabsetComponent } from 'ngx-bootstrap/tabs';
 import { IPropertyPreview } from 'src/app/interfaces/iproperty-preview';
 import { ToastrService } from 'ngx-toastr';
 import { IProperty } from 'src/app/interfaces/iproperty';
+import { HousingService } from 'src/app/services/housing.service';
+import { Route, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-property',
@@ -37,7 +39,7 @@ export class AddPropertyComponent implements OnInit {
     houseSize: new FormControl(BHKType.TwoBHK),
     propertyType: new FormControl(PropertyType.Apartment),
     furnishingType: new FormControl(FurnishingType.Unfurnished),
-    projectName: new FormControl("", Validators.required),
+    propertyName: new FormControl("", Validators.required),
     streetAddress: new FormControl("", Validators.required),
     city: new FormControl("", Validators.required),
     state: new FormControl("", Validators.required)
@@ -88,8 +90,8 @@ export class AddPropertyComponent implements OnInit {
     return this.basicDetailsForm.get("propertyType");
   }get furnishingType() {
     return this.basicDetailsForm.get("furnishingType");
-  }get projectName() {
-    return this.basicDetailsForm.get("projectName");
+  }get propertyName() {
+    return this.basicDetailsForm.get("propertyName");
   }get streetAddress() {
     return this.basicDetailsForm.get("streetAddress");
   }get city() {
@@ -144,7 +146,7 @@ export class AddPropertyComponent implements OnInit {
   //#endregion
 
 
-  constructor(private toastr: ToastrService) {}
+  constructor(private toastr: ToastrService, private housingService: HousingService, private router:Router) {}
 
   ngOnInit(): void {
     this.setNavigationButtonStatus(this.activeTabName);
@@ -163,7 +165,7 @@ export class AddPropertyComponent implements OnInit {
   propertyPreview : IPropertyPreview = {
     houseSize: this.houseSize?.value,
     propertyType: this.propertyType?.value,
-    propertyName: this.projectName?.value,
+    propertyName: this.propertyName?.value,
     streetAddress: this.streetAddress?.value,
     furnishingType: this.furnishingType?.value,
     isReadyToMove: this.isReadyToMove?.value,
@@ -176,7 +178,7 @@ export class AddPropertyComponent implements OnInit {
     debugger;
     this.propertyPreview.houseSize = data.houseSize ?? this.propertyPreview.houseSize;
     this.propertyPreview.propertyType = data.propertyType ?? this.propertyPreview.propertyType;
-    this.propertyPreview.propertyName = data.projectName ?? this.propertyPreview.propertyName;
+    this.propertyPreview.propertyName = data.propertyName ?? this.propertyPreview.propertyName;
     this.propertyPreview.streetAddress = data.streetAddress ?? this.propertyPreview.streetAddress;
     this.propertyPreview.furnishingType = data.furnishingType ?? this.propertyPreview.furnishingType;
     this.propertyPreview.isReadyToMove = data.isReadyToMove ?? this.propertyPreview.isReadyToMove;
@@ -242,13 +244,12 @@ export class AddPropertyComponent implements OnInit {
 
         this.finalPropertyObject = {
           id: null,
-          name: this.projectName.value,
-          address: [this.addressL1, this.addressL2.value, this.cityA.value, "Pin - " + this.pincode.value, this.stateA.value, this.country.value].join(", "),
+          propertyName: this.propertyName.value,
+          fullAddress: [this.addressL1.value, this.addressL2.value, this.cityA.value, "Pin - " + this.pincode.value, this.stateA.value, this.country.value].join(", "),
           sellRent: this.sellRent.value,
           houseSize: this.houseSize.value,
           propertyType: this.propertyType.value,
           furnishingType: this.furnishingType.value,
-          projectName: this.projectName.value,
           city: this.city.value,
           state: this.state.value,
           price: this.price.value,
@@ -263,7 +264,10 @@ export class AddPropertyComponent implements OnInit {
           directionFacing: this.directionFacing.value,
           images: this.UploadedImages
         }
-
+        debugger;
+        this.housingService.saveProperty(this.finalPropertyObject);
+        this.toastr.success("Property Listing Added!");
+        this.router.navigate(["dashboard"]);
       }
     else {
       this.toastr.warning("Kindly fill out all the mandatory fields");

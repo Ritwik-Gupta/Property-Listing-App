@@ -3,25 +3,10 @@
   <div class="card-wrapper">
     <img src="../../../assets/static/default_house.png" class="card-image">
     <div class="d-flex d-flex option-icons" *ngIf="!isPropertyPreview">
-      <div class="mx-2"><i class="fa-solid fa-pen-to-square fa-lg" data-fa-mask="fa-solid fa-square" routerLink="view-property/{{property.id}}"></i></div>
+      <div class="mx-2"><i class="fa-solid fa-eye fa-lg" data-fa-mask="fa-solid fa-square" routerLink="../view-property/{{property.id}}"></i></div>
       <div class="mx-2"><i class="fa-solid fa-address-book fa-lg" data-fa-mask="fa-solid fa-square"></i></div>
     </div>
   </div>
-  <!-- <div class="card-body" *ngIf="!isPropertyPreview">
-    <h4  class="card-title text-primary">{{property.name}}</h4>
-    <small class="card-text">in {{property.address}}</small><br>
-    <strong>
-      <small class="card-text">{{furnishingType}}</small>
-      <small *ngIf="isReadytoMove"> | Ready to Move</small>
-    </strong>
-    <hr class="my-1">
-    <span class="fw-bold">
-      <small>Price: </small>
-      <small class="text-danger fst-italic">{{property.price | currency:"INR"}}</small> |
-      <small>Area: </small>
-      <small class="text-danger fst-italic">{{property.area}} sqft.</small>
-    </span>
-  </div> -->
   <div class="card-body" *ngIf="!isPropertyPreview">
     <h3  class="card-title text-primary">{{property.houseSize}}BHK {{property.propertyType}}</h3>
     <span *ngIf="property.propertyName" id="propertyName">
@@ -36,9 +21,9 @@
     <hr class="my-1">
     <span >
       <small>Price: </small>
-      <small class="text-danger fst-italic">{{property.askPrice | currency:"INR"}}</small> |
+      <small class="text-danger fst-italic">{{property.price | currency:"INR"}}</small> |
       <small>Area: </small>
-      <small class="text-danger fst-italic">{{property.totalArea}} sqft.</small>
+      <small class="text-danger fst-italic">{{property.builtArea}} sqft.</small>
     </span>
   </div>
   <div class="card-body" *ngIf="isPropertyPreview">
